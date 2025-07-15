@@ -1,0 +1,398 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --green-light: #6D8B74; 
+    --green-dark: #6D8B74; 
+    --light-gray: #f7f7f7;
+    --dark-text: #333333;
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    direction: rtl; 
+    text-align: right; 
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--green-dark); 
+    color: var(--white);
+    padding: 1.5rem 0;
+    text-align: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+header .logo img {
+    height: 70px; 
+    flex-shrink: 0; 
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em; 
+    flex-shrink: 1; 
+    text-align: center; 
+    color: var(--white); 
+}
+
+h1, h2, h3 {
+    color: var(--dark-text); 
+    margin-top: 0;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+.activity-selection-section h2, .submission-form-section h2 {
+    border-bottom: 2px solid var(--green-light); 
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    color: var(--green-dark); 
+    font-size: 1.8em;
+    text-align: right; 
+}
+
+.instructions {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: var(--dark-text);
+    padding: 10px 20px;
+    background-color: #e6ffe6; 
+    border-radius: 8px;
+    border: 1px solid var(--green-light); 
+}
+
+.table-container {
+    overflow-x: auto; 
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: var(--white);
+    min-width: 800px; 
+}
+
+table th, table td {
+    border: 1px solid var(--border-color);
+    padding: 15px 10px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; 
+}
+
+table thead tr:first-child th {
+    background-color: var(--green-dark); 
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+table thead tr:last-child th {
+    background-color: var(--green-light); 
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1em;
+}
+
+table th[rowspan="2"] {
+    background-color: var(--green-dark); 
+    color: var(--white);
+    font-size: 1.2em;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+table tbody tr:hover {
+    background-color: #eef;
+}
+
+table tbody td:first-child,
+table tbody td:nth-child(2) {
+    font-weight: bold;
+    color: var(--dark-text);
+    text-align: right;
+    padding-right: 20px;
+    background-color: #f0f0f0;
+}
+
+table tbody td[data-label="المشاركة بزيارة:"] {
+    text-align: center;
+    background-color: var(--white); 
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #dee2e6;
+    border: 2px solid #adb5bd;
+    border-radius: 5px; 
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    vertical-align: middle;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--green-dark); 
+    border-color: var(--green-dark);
+}
+
+input[type="checkbox"]:checked::after {
+    content: '\f00c'; 
+    font-family: "Font Awesome 6 Free"; 
+    font-weight: 900; 
+    color: var(--white);
+    font-size: 18px; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#selection-summary {
+    background-color: #e6ffe6;
+    color: var(--green-dark); 
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid var(--green-dark); 
+    font-size: 1.1em;
+}
+
+.submission-form-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-color);
+    text-align: center; 
+}
+
+.submit-btn {
+    background-color: var(--black); 
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: auto;
+    display: inline-block; 
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: var(--green-dark); 
+    transform: translateY(-2px);
+}
+
+#form-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 50px;
+    font-size: 1.1em; 
+    line-height: 1.5; 
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        padding: 1rem 0;
+        gap: 10px; 
+    }
+    header .logo img {
+        height: 60px; 
+    }
+    header h1 {
+        font-size: 1.6em; 
+        padding: 0 5px; 
+    }
+    main {
+        padding: 10px;
+        margin: 15px auto;
+    }
+    .activity-selection-section h2, .submission-form-section h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        text-align: center; 
+    }
+    .instructions {
+        font-size: 0.95em;
+        padding: 8px 15px;
+    }
+
+    .table-container {
+        border: none;
+        box-shadow: none;
+    }
+    table {
+        min-width: unset; 
+        border-collapse: separate;
+        border-spacing: 0 15px; 
+    }
+    thead {
+        display: none; 
+    }
+    tbody, tr {
+        display: block; 
+        width: 100%;
+    }
+    tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        text-align: right; 
+        white-space: normal;
+        display: flex; 
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 10px 15px; 
+        min-height: 50px;
+        box-sizing: border-box;
+        font-size: 0.95em; 
+    }
+    td:last-child {
+        border-bottom: 0;
+    }
+
+    table tbody td:first-child,
+    table tbody td:nth-child(2) {
+        background-color: var(--white); 
+        font-weight: bold;
+    }
+    table tbody td[data-label="المشاركة بزيارة:"] {
+        text-align: right; 
+        align-items: flex-start;
+        background-color: var(--white); 
+    }
+
+    td:before {
+        content: attr(data-label);
+        display: block; 
+        font-weight: bold;
+        color: var(--green-dark); 
+        margin-bottom: 5px; 
+        text-align: right; 
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.6);
+        margin-top: 5px; 
+    }
+    
+    td[data-label*="النشاط"],
+    td[data-label="المشاركة بزيارة:"] {
+        padding-right: 15px; 
+        padding-left: 15px; 
+    }
+
+    .submit-btn {
+        width: 90%; 
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    #selection-summary {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+    footer {
+        padding: 1rem 0;
+        font-size: 0.95em; 
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    table {
+        min-width: 700px;
+    }
+    table th, table td {
+        padding: 12px 8px;
+        font-size: 0.95em;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.4);
+    }
+    .submit-btn {
+        padding: 14px 28px;
+        font-size: 1.15em;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header .logo img {
+        height: 65px;
+    }
+}
+}
