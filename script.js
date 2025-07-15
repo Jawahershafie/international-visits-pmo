@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     activityTableBody.appendChild(tr);
                 });
 
-                formStatus.textContent = 'تم تحميل البيانات بنجاح.';
+                formStatus.textContent = '✅ تم تحميل البيانات بنجاح.';
                 formStatus.className = 'success';
             } else {
                 formStatus.textContent = 'لا توجد بيانات لعرضها.';
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error loading data:', error);
-            formStatus.textContent = 'فشل تحميل البيانات. تأكد من الرابط وصلاحيات الوصول.';
+            formStatus.textContent = '❌ فشل تحميل البيانات. تأكد من الرابط وصلاحيات الوصول.';
             formStatus.className = 'error';
         }
     }
@@ -63,18 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 activityUpdates: { [activityName]: isChecked }
             };
 
-            await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
+            const response = await fetch(GOOGLE_APPS_SCRIPT_WEB_APP_URL, {
                 method: 'POST',
-                mode: 'no-cors',
+                mode: 'cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
-            formStatus.textContent = 'تم تحديث النشاط بنجاح.';
-            formStatus.className = 'success';
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                formStatus.textContent = '✅ تم تحديث النشاط بنجاح.';
+                formStatus.className = 'success';
+            } else {
+                throw new Error(result.message || 'فشل في التحديث.');
+            }
+
         } catch (error) {
             console.error('Error sending update:', error);
-            formStatus.textContent = 'فشل تحديث النشاط. جارٍ إعادة الحالة السابقة.';
+            formStatus.textContent = '❌ فشل التحديث. جارٍ إعادة الحالة السابقة.';
             formStatus.className = 'error';
             checkboxElement.checked = !isChecked;
         }
